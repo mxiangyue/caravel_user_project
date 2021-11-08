@@ -23,6 +23,13 @@
     `include "gl/user_project_wrapper.v"
     `include "gl/user_proj_example.v"
 `else
+    `include "include.v"
+    `include "Sig_ROM.v"
+    `include "weight_memory.v"
+    `include "neuron.v"
+    `include "layer_1.v"
+    `include "layer_4.v"
+    `include "max_finder.v"
     `include "user_project_wrapper.v"
     `include "user_proj_example.v"
 `endif
