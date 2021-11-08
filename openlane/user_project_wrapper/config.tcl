@@ -16,9 +16,6 @@
 # Base Configurations. Don't Touch
 # section begin
 
-set ::env(PDK) "sky130A"
-set ::env(STD_CELL_LIBRARY) "sky130_fd_sc_hd"
-
 # YOU ARE NOT ALLOWED TO CHANGE ANY VARIABLES DEFINED IN THE FIXED WRAPPER CFGS 
 source $::env(CARAVEL_ROOT)/openlane/user_project_wrapper_empty/fixed_wrapper_cfgs.tcl
 
@@ -38,10 +35,10 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/user_project_wrapper.v"
 
 ## Clock configurations
-set ::env(CLOCK_PORT) "user_clock2"
-set ::env(CLOCK_NET) "mprj.clk"
+set ::env(CLOCK_PORT) "wb_clk_i"
+# set ::env(CLOCK_NET) "mprj.clk"
 
-set ::env(CLOCK_PERIOD) "10"
+set ::env(CLOCK_PERIOD) "25"
 
 ## Internal Macros
 ### Macro PDN Connections
@@ -54,6 +51,12 @@ set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
 ### Black-box verilog and views
 set ::env(VERILOG_FILES_BLACKBOX) "\
 	$::env(CARAVEL_ROOT)/verilog/rtl/defines.v \
+	$script_dir/../../verilog/rtl/include.v \
+	$script_dir/../../verilog/rtl/Sig_ROM.v \
+	$script_dir/../../verilog/rtl/weight_memory.v \
+	$script_dir/../../verilog/rtl/neuron.v \
+	$script_dir/../../verilog/rtl/layer_1.v \
+	$script_dir/../../verilog/rtl/max_finder.v \
 	$script_dir/../../verilog/rtl/user_proj_example.v"
 
 set ::env(EXTRA_LEFS) "\
